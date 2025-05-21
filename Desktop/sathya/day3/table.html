@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Math Skills & Tools</h2>
+        <table>
+            <tr>
+                <th>Skill</th>
+                <th>Proficiency Level</th>
+            </tr>
+            <tr>
+                <td>Calculus</td>
+                <td>Advanced</td>
+            </tr>
+            <tr>
+                <td>Linear Algebra</td>
+                <td>Intermediate</td>
+            </tr>
+            <tr>
+                <td>Statistics</td>
+                <td>Expert</td>
+            </tr>
+            <tr>
+                <td>Python for Math</td>
+                <td>Intermediate</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

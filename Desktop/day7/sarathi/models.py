@@ -11,10 +11,10 @@ class student(models.Model):
         return self.name
 
 
-class Biodata(models.Model):
-    dept=models.CharField(max_length=40)
+class biodata(models.Model):
+    dept=models.CharField(max_length=50)
     age=models.IntegerField()
-    gender=models.CharField(max_length=40)
-    mobile_no=models.IntegerField()
-    stream=models.CharField(max_length=40)
+    gender=models.CharField(max_length=50)
+    mobile_no = models.CharField(max_length=15)  # Adjust max_length as needed
+    stream=models.CharField(max_length=50)
 

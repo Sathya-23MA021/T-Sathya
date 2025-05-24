@@ -3,6 +3,8 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
+
 # Create your views here.
 def homepage(request):
     return render (request,'index.html')
@@ -57,9 +59,20 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')              
+    return redirect('login') 
 
 
 
+def student_biodata(request):
+    if request.method == 'POST':
+        dept = request.POST.get('dept')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+        mobile_no = request.POST.get('mobile_no')
+        stream = request.POST.get('stream')
+        biodata.objects.create(dept=dept, age=age, gender=gender, mobile_no=mobile_no, stream=stream)
+        return redirect('student_biodata')
+    biodatas = biodata.objects.all()
+    return render(request,'biodata.html', {'biodatas': biodatas})    
 
     

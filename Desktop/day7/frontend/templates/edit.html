@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #e8f5e9;
+      /* light green */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    .message {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .message.success {
+      background-color: #c8e6c9;
+      color: #256029;
+    }
+
+    .message.error {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+
+    input,
+    button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+      border: 1px solid #2e7d32;
+    }
+
+    button {
+      background-color: #2e7d32;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- templates/students/update.html -->
+
+
+
+  <form method="POST">
+    {% csrf_token %}
+    <h2>Edit biodatas</h2>
+    <input type="text" name="dept" placeholder="Dept" value="{{ biodata.dept }}"><br>
+    <input type="number" name="age" placeholder="Age" value="{{ biodata.age }}"><br>
+    <input type="text" name="gender" placeholder="Gender" value="{{ biodata.gender }}"><br>
+    <input type="number" name="mobile_no" placeholder="Mobile_no" value="{{ biodata.mobile_no }}"><br>
+    <input type="text" name="stream" placeholder="Stream" value="{{ biodata.stream }}"><br>
+
+    <button type="submit">Update</button>
+
+
+
+  </form>
+</body>
+
+</html>

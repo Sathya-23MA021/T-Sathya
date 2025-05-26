@@ -17,4 +17,9 @@ class biodata(models.Model):
     gender=models.CharField(max_length=50)
     mobile_no = models.CharField(max_length=15)  # Adjust max_length as needed
     stream=models.CharField(max_length=50)
+ 
+
+    def __str__(self):
+        return self.mobile_no
+
 

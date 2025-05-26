@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- templates/students/delete.html -->
+  <h2>Delete biodatas: {{ biodatas.dept }}</h2>
+  <h3>Delete biodatas: {{ biodatas.age }}</h3>
+  <h4>Delete biodatas: {{ biodatas.gender }}</h4>
+  <h5>Delete biodatas: {{ biodatas.mobile_no }}</h5>
+  <h6>Delete biodatas: {{ biodatas.stream }}</h6>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+  </form>
+
+
+</body>
+
+</html>

@@ -53,14 +53,37 @@
         <h2>Edit MoodTracker</h2>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="mood" value="{{ entries.mood }}" required><br>
-            <input type="number" name="mood_intensity" value="{{ entries.mood_intensity }}" required><br>
-            <input type="text" name="performance" value="{{ entries.performance }}" required><br>
-            <input type="text" name="stress_level" value="{{ entries.stress_level }}" required><br>
-            <input type="text" name="energy_level" value="{{ entries.energy_level }}" required><br>
-            <input type="text" name="self_care" value="{{ entries.self_care }}" required><br>
+            <input type="text" name="username" value="{{ entries.username }}" placeholder="Username" required><br>
+            <input type="date" name="date" value="{{ entries.date }}" placeholder="Date" required><br>
+            <input type="time" name="time" value="{{ entries.time }}" placeholder="Time" required><br>
+            <input type="text" name="mood" value="{{ entries.mood }}" placeholder="Mood" required><br>
+            <input type="number" name="mood_intensity" value="{{ entries.mood_intensity }}" placeholder="Mood Intensity" required><br>
+            <input type="text" name="performance" value="{{ entries.performance }}" placeholder="Performance" required><br>
+            <input type="number" name="performance_score" value="{{ entries.performance_score }}" placeholder="Performance Score" required><br>
+            <input type="text" name="stress_level" value="{{ entries.stress_level }}" placeholder="Stress Level" required><br>
+            <input type="text" name="energy_level" value="{{ entries.energy_level }}" placeholder="Energy Level" required><br>
+            <input type="text" name="physical_health" value="{{ entries.physical_health }}" placeholder="Physical Health" required><br>
+            <input type="text" name="activities" value="{{ entries.activities }}" placeholder="Activities" required><br>
+            <input type="text" name="social_interaction" value="{{ entries.social_interaction }}" placeholder="Social Interaction" required><br>
+            <input type="text" name="weather" value="{{ entries.weather }}" placeholder="Weather" required><br>
+            <input type="text" name="mental_clarity" value="{{ entries.mental_clarity }}" placeholder="Mental Clarity" required><br>
+            <input type="text" name="gratitude_notes" value="{{ entries.gratitude_notes }}" placeholder="Gratitude Notes" required><br>
+            <input type="text" name="self_care" value="{{ entries.self_care }}" placeholder="Self Care" required><br>
             <button type="submit">Update</button>
         </form>
+         <h2>Mood Tracker List</h2>
+        <ul>
+            {% for MoodTracker in entries %}
+            <li>{{ MoodTracker.username }} - {{ MoodTracker.date }} - {{ MoodTracker.time }} - {{ MoodTracker.mood }} -
+                {{
+                MoodTracker.mood_intensity }} - {{ MoodTracker.performance }} - {{ MoodTracker.performance_score }} - {{
+                MoodTracker.stress_level }} - {{ MoodTracker.energy_level }} - {{ MoodTracker.physical_health }} - {{
+                MoodTracker.activities }} - {{ MoodTracker.social_interaction }} - {{ MoodTracker.weather }} - {{
+                MoodTracker.mental_clarity }} - {{ MoodTracker.gratitude_notes }} - {{ MoodTracker.self_care }}</li>
+            {% empty %}
+            <li>No entries yet.</li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

@@ -107,7 +107,7 @@
 #     entries.delete()
 #     return redirect("mood_tracker_list")
 from django.shortcuts import get_object_or_404, render, redirect
-
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import MoodTracker
@@ -147,9 +147,13 @@ def edit_MoodTracker(request, pk):
     entries = get_object_or_404(MoodTracker, pk=pk)
 
     if request.method == "POST":
+        entries.username = request.POST.get("username")
+        entries.date = request.POST.get("date")
+        entries.time = request.POST.get("time")
         entries.mood = request.POST.get("mood")
         entries.mood_intensity = request.POST.get("mood_intensity")
         entries.performance = request.POST.get("performance")
+        entries.performance_score = request.POST.get("performance_score")
         entries.stress_level = request.POST.get("stress_level")
         entries.energy_level = request.POST.get("energy_level")
         entries.physical_health = request.POST.get("physical_health")
@@ -160,15 +164,20 @@ def edit_MoodTracker(request, pk):
         entries.gratitude_notes = request.POST.get("gratitude_notes")
         entries.self_care = request.POST.get("self_care")
         entries.save()
-
         return redirect("mood_tracker_list")
 
-    return render(request, "edit.html", {"entries": entries})
+    return render(request, "edit.html", {
+        "edit_MoodTracker": entries,
+        "entries": MoodTracker.objects.all()
+    })
 
-def delete_MoodTracker(request, pk):
+
+def delete_MoodTracker(request, pk): 
     entries = get_object_or_404(MoodTracker, pk=pk)
     entries.delete()
     return redirect("mood_tracker_list")
+
+
 
 def signup_view(request):
     if request.method == 'POST':
